@@ -15,7 +15,8 @@ jobs:
       - run: npm ci
 
   build:
-    runs-on: actions/checkout@v4
+    runs-on: ubuntu-latest
+    needs: install
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -26,6 +27,7 @@ jobs:
 
   docker:
     runs-on: ubuntu-latest
+    needs: build
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
