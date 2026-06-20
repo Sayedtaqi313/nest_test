@@ -1,32 +1,15 @@
-name: Practice 1
+name: Install and build nestjs app
 
 on:
   push:
 
 jobs:
-  hello:
-    runs-on: ubuntu-latest
+  installing:
+    runs-on: ubuntu@latest
 
     steps:
       - uses: actions/checkout@v4
 
-      - run: pwd
+      - run: npm ci
 
-      - run: ls -la
-      - run: echo "Hello Mahdi"
-
-
-name: My first workflow
-
-on:
-  push:
-
-jobs:
-  first:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-
-      - run: node -v
-
-      - run: npm -v
+      - run: npm run build
