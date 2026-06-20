@@ -13,5 +13,4 @@ jobs:
       - run: pwd
 
       - run: ls -la
-
       - run: echo "Hello Mahdi"
