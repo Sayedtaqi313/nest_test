@@ -7,18 +7,18 @@ jobs:
   install:
     runs-on: ubuntu-latest
     steps:
-      - uses: action/checkout@v4
-      - uses: action/setup-node@v4
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: 22
 
       - run: npm ci
 
   build:
-    runs-on: action/checkout@v4
+    runs-on: actions/checkout@v4
     steps:
-      - uses: action/checkout@v4
-      - uses: action/setup-node@v4
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: 22
       - run: npm ci
@@ -27,8 +27,8 @@ jobs:
   docker:
     runs-on: ubuntu-latest
     steps:
-      - uses: action/checkout@v4
-      - uses: action/setup-node@v4
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: 22
 
