@@ -1,18 +1,35 @@
-name: Install and build nestjs app
+name: Installing and building the application
 
 on:
   push:
 
-env:
-  PROJECT_ID: 'this is the projectId'
-
 jobs:
-  installing:
+  install:
     runs-on: ubuntu-latest
-
     steps:
-      - uses: actions/checkout@v4
+      - uses: action/checkout@v4
+      - uses: action/setup-node@v4
+        with:
+          node-version: 22
 
-      - run: echo ${{ secrets.MY_NAME}}
+      - run: npm ci
 
-      - run: echo $PROJECT_ID
+  build:
+    runs-on: action/checkout@v4
+    steps:
+      - uses: action/checkout@v4
+      - uses: action/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm ci
+      - run: npm run build
+
+  docker:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: action/checkout@v4
+      - uses: action/setup-node@v4
+        with:
+          node-version: 22
+
+      - run: docker build -t nestjs .
