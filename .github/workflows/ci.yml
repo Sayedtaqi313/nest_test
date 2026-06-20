@@ -1,16 +1,11 @@
-<<<<<<< HEAD
 name: Install and build nestjs app
-=======
-name: My first workflow
->>>>>>> 762707a5e65baa528e272b33abc3ee97a926ac53
 
 on:
   push:
 
 jobs:
-<<<<<<< HEAD
   installing:
-    runs-on: ubuntu@latest
+    runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v4
@@ -18,16 +13,3 @@ jobs:
       - run: npm ci
 
       - run: npm run build
-=======
-  first:
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 22
-
-      - run: node -v
-
-      - run: npm -v
->>>>>>> 762707a5e65baa528e272b33abc3ee97a926ac53
